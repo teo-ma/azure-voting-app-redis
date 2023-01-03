@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: teomaazurevotingappredis 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teomaazurevotingappredis
+  template:
+    metadata:
+      labels:
+        app: teomaazurevotingappredis 
+    spec:
+      containers:
+        - name: teomaazurevotingappredis 
+          image: acrmonitoringtest.azurecr.io/teomaazurevotingappredis
+          ports:
+          - containerPort: 80

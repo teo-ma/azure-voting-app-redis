@@ -22,5 +22,5 @@ steps:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'ME-MngEnv598430-tema-1 (6fa8eb6f-e2f1-493f-b01d-d47253728c9f)'
     azureContainerRegistry: '{"loginServer":"acrmonitoringtest.azurecr.io", "id" : "/subscriptions/6fa8eb6f-e2f1-493f-b01d-d47253728c9f/resourceGroups/rg-aksmonitoringtest/providers/Microsoft.ContainerRegistry/registries/acrmonitoringtest"}'
-    dockerComposeFile: '**/docker-compose.yml'
+    dockerComposeFile: '**/docker-compose.yaml'
     action: 'Run a Docker Compose command'

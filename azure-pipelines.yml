@@ -1,0 +1,31 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Azure Resource Manager'
+    azureSubscriptionEndpoint: 'ME-MngEnv598430-tema-1 (6fa8eb6f-e2f1-493f-b01d-d47253728c9f)'
+    azureResourceGroup: 'rg-aksmonitoringtest'
+    kubernetesCluster: 'aksmonitoringtest'
+    namespace: 'vote-devops'
+    command: 'apply'
+    useConfigurationFile: true
+    configuration: 'azure-vote-all-in-one-redis.yaml'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
